@@ -40,8 +40,8 @@ $request->image->store(/);
 
 ![1- VS code php Errors](https://github.com/emad566/ecom125/blob/main/readme-resourcs/images/php1.png?raw=true)
 
-<p>1- Check you php verision<p>
-<p>2- Open vs code settings<p>
-<p>3- Edit settings in json<p>
-<p>2- Open vs code settings<p>
+1. Check you php verision
+2. Open vs code settings
+3. Edit settings in json
+4. Open vs code settings
 
