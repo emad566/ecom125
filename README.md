@@ -15,6 +15,7 @@ php artisan route:list
 <ol>
 <li>Sinagle Actions controllers (26)<li>
 </ol>
+
 # Issues
 ## 1- VS code php Errors
 <p>PHP Installation could not be found<p>
