@@ -1,3 +1,11 @@
+```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
+@@ text in purple (and bold)@@
+```
+
 # Commands
 <p>php artisan commands<p>
 
@@ -51,7 +59,7 @@ unlik(storage_path('/app/public/images/image.jpg));
 <li>Storage linke (66)</li>
 <li>Returning file ti download (71)</li>
 <li>Laravel-Bootstrap Pagination: (87)</li>
-<li>![#f03c15] Laravel-Bootstrap Pagination: (87) `#f03c15`</li>
+<li>! Laravel-Bootstrap Pagination: (87) </li>
 </ol>
 
 
