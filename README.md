@@ -5,6 +5,9 @@
 php artisan
 php artisan route:list
 php artisan make:controller HomeController --invokable
+php artisan storage:link
+php artisan tinker
+> storage_path()
 ```
 
 <p>compser commands commands<p>
@@ -14,9 +17,22 @@ php artisan make:controller HomeController --invokable
 ```
 
 # Laravel PHP Commands
+<p>Storage file system</p>
 
 ```
 $request->image->store(/);
+$request->image->storeAs(/, 'image.jpg');
+// image folder is: storage/app/public BUT call as:
+// You can change storge path from config/filesystem.php
+{{asset('/storage/images/image.jpg')}} 
+
+// Delete file
+Storage::delete('/storage/images/image.jpg'); // for storage folder
+Storage::disk('public)->delete('/storage/images/image.jpg'); // for public folder
+Storage::disk('local)->delete('/storage/images/image.jpg'); //for local disk
+
+// Also can delete using 
+<!-- Fill::delete(storage_path('/app/public/images/image.jpg)); --> // if file system is storage folder
 ```
 
 
@@ -29,6 +45,7 @@ $request->image->store(/);
 <li>Many to Many Relationship (62)</li>
 <li>File Storage (63)</li>
 <li>Store file in storage (65)</li>
+<li>Storage linke (66)</li>
 </ol>
 
 
