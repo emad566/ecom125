@@ -4,6 +4,7 @@
 ```
 php artisan
 php artisan route:list
+php artisan make:controller HomeController --invokable
 ```
 
 <p>compser commands commands<p>
@@ -14,13 +15,19 @@ php artisan route:list
 # Laravel section titles importants
 <ol>
 <li>Sinagle Actions controllers (26)<li>
-
-```
-
-php artisan make:controller HomeController --invokable
-```
-
+<li>Stop CRF token protection (28)<li>
+<li>Format form errors in bootstrap (29)<li>
+<li>Factories (58)<li>
+<li>Many to Many Relationship (62)<li>
+<li>File Storage (63)<li>
+<li>Store file in storage (65)<li>
 </ol>
+
+# Laravel PHP Commands
+
+```
+$request->image->store(/);
+```
 
 # Issues
 ## 1- VS code php Errors
