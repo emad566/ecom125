@@ -14,6 +14,6 @@ php artisan route:list
 
 # Issues
 # 1- VS code php Errors
-![1- VS code php Errors](https://github.com/emad566/ecom125/blob/main/readme-resources/images/php1.png?raw=true)
+![1- VS code php Errors](https://github.com/emad566/ecom125/blob/main/readme-resourcs/images/php1.png?raw=true)
 
 
