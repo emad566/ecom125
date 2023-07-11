@@ -32,7 +32,10 @@ Storage::disk('public)->delete('/storage/images/image.jpg'); // for public folde
 Storage::disk('local)->delete('/storage/images/image.jpg'); //for local disk
 
 // Also can delete using 
-<!-- Fill::delete(storage_path('/app/public/images/image.jpg)); --> // if file system is storage folder
+Fill::delete(storage_path('/app/public/images/image.jpg)); // if file system is storage folder
+
+// or use
+unlik(storage_path('/app/public/images/image.jpg));
 ```
 
 
@@ -46,6 +49,9 @@ Storage::disk('local)->delete('/storage/images/image.jpg'); //for local disk
 <li>File Storage (63)</li>
 <li>Store file in storage (65)</li>
 <li>Storage linke (66)</li>
+<li>Returning file ti download (71)</li>
+<li>Laravel-Bootstrap Pagination: (87)</li>
+<li>![#f03c15] Laravel-Bootstrap Pagination: (87) `#f03c15`</li>
 </ol>
 
 
