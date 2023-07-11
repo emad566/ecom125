@@ -59,7 +59,7 @@ unlik(storage_path('/app/public/images/image.jpg));
 <li>Storage linke (66)</li>
 <li>Returning file ti download (71)</li>
 <li>Laravel-Bootstrap Pagination: (87)</li>
-<li>! Laravel-Bootstrap Pagination: (87) </li>
+<li>$${\color{green} Laravel-Bootstrap Pagination: (87)}$$</li>
 </ol>
 
 
