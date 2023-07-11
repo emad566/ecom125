@@ -1,12 +1,6 @@
-```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
 
 # Commands
+
 <p>php artisan commands<p>
 
 ```
@@ -16,6 +10,7 @@ php artisan make:controller HomeController --invokable
 php artisan storage:link
 php artisan tinker
 > storage_path()
+php artisan queue:table
 ```
 
 <p>compser commands commands<p>
@@ -23,6 +18,15 @@ php artisan tinker
 ```
 
 ```
+
+<p>Spatie Multi-tenancy installion commands</p>
+
+```
+php artisan migrate --path=database/migrations/landlord --database=landlord
+php artisan tenants:artisan "migrate:fresh --seed" 
+php artisan tenants:artisan "db:seed --class=SetupSeeder"
+```
+
 
 # Laravel PHP Commands
 <p>Storage file system</p>
@@ -60,6 +64,10 @@ unlik(storage_path('/app/public/images/image.jpg));
 <li>Returning file ti download (71)</li>
 <li>Laravel-Bootstrap Pagination: (87)</li>
 <li>$${\color{green} Laravel-Bootstrap Pagination: (87)}$$</li>
+<li>$${\color{green} Blade componants: (94-98)}$$</li>
+<li>$${\color{green} Sending email: (99-102)}$$</li>
+<li>$${\color{green} Laravel Cache: (108-114)}$$</li>
+<li>$${\color{green} Queues (127-129)}$$</li>
 </ol>
 
 
