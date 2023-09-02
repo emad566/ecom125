@@ -12,15 +12,15 @@ class CustomDomainTenantFinder
 
     public function findForRequest(Request $request):?Tenant
     {
-        $tenant = $this->getTenantModel()::where('name', $request->header('customer'))->first();
-        if($tenant) return $tenant;
-        $tenant = $this->getTenantModel()::where('isActive', 0)->first();
-        if($tenant) return $tenant;
-        return null;
+//        $tenant = $this->getTenantModel()::where('name', $request->header('customer'))->first();
+//        if($tenant) return $tenant;
+//        $tenant = $this->getTenantModel()::where('isActive', 0)->first();
+//        if($tenant) return $tenant;
+//        return null;
 
-        // $host = $request->getHost();
-
-        // return $this->getTenantModel()::whereDomain($host)->first();
+         $host = $request->getHost();
+         if(!$host) return  null;
+         return $this->getTenantModel()::whereDomain($host)->first();
     }
 
 

@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Translatable\HasTranslations;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    use HasTranslations;
 
     /**
      * The attributes that are mass assignable.
@@ -19,8 +21,14 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'username',
+        'image',
+        'phone',
         'email',
+        'email_verified_at',
         'password',
+        'role',
+        'active_status',
     ];
 
     /**
@@ -33,13 +41,25 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
+    public  $translatable = ['name'];
+
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
     ];
+
+    public function setEmailAttribute($value){
+
+        $this->attributes['email'] = strtolower($value);
+    }
+
+    public function setPasswordAttribute($value){
+
+        $this->attributes['password'] = bcrypt($value);
+    }
+
+    function profile_image_path(): string
+    {
+        return file_exists(public_path($this->image))? asset($this->image) : asset('dashboards/assets/img/avatar/avatar-1.png');
+    }
+
 }

@@ -2,7 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use App\Http\Controllers\Api\BaseApiController;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\ApiResponse;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,8 +11,9 @@ use Symfony\Component\HttpFoundation\Response;
 use function PHPUnit\Framework\isEmpty;
 use function PHPUnit\Framework\returnSelf;
 
-class TenantFree extends BaseApiController
+class TenantFree extends Controller
 {
+    use ApiResponse;
     /**
      * Handle an incoming request.
      *
@@ -19,11 +21,11 @@ class TenantFree extends BaseApiController
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $responseError = BaseApiController::sendResponse(false, [], 'No tenant, Sorry not allowed access now.');
+        $responseError = $this->sendResponse(false, [], 'No tenant, Sorry not allowed access now.');
         try {
             if(!app('currentTenant')) return $responseError;
             if(app('currentTenant')->isActive == 0) return  $next($request);
-            return BaseApiController::sendResponse(false, [app('currentTenant')], 'This tenant is active , Sorry not allowed access now.');
+            return $this->sendResponse(false, [app('currentTenant')], 'This tenant is active , Sorry not allowed access now.');
         } catch (\Throwable $th) {
             return $responseError;
         }
