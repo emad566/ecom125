@@ -20,6 +20,7 @@
                             </div>
                         </div>
 
+
                         <div class="col-xl-3 col-sm-6 col-md-6">
                             <label for="newAvatar">
                                 <div class="wsus__dash_pro_img">
@@ -50,7 +51,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </form>
             </div>

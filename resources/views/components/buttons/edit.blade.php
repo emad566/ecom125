@@ -1,1 +1,9 @@
-<x-buttons.button {{ $attributes }}>{{ __('Edit') }}</x-buttons.button>
+<a
+    {{ $attributes->merge([
+        'type' => 'button',
+        'class' => 'btn btn-primary',
+    ]) }}
+>
+    <i class="far fa-edit"></i>
+</a>
+

@@ -18,10 +18,11 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{asset('dashboards/assets/css/style-rtl.css')}}">
     <link rel="stylesheet" href="{{asset('dashboards/assets/css/components-rtl.css')}}">
-{{--    <link rel="stylesheet" href="{{asset('dashboards/assets/css/rtl.css')}}">--}}
 
     <!-- Start GA -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+    <script src="{{asset('dashboards/assets/modules/jquery.min.js')}}"></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}

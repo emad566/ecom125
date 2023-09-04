@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Http\Controllers\General\ConstantController;
+use App\Http\Traits\StatusSwitch;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -14,7 +15,7 @@ use Spatie\Translatable\HasTranslations;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    use HasTranslations;
+    use HasTranslations, StatusSwitch;
 
     /**
      * The attributes that are mass assignable.
@@ -31,7 +32,7 @@ class User extends Authenticatable
         'password',
         'role',
         'about',
-        'active_status',
+        'status',
     ];
 
     /**
@@ -62,7 +63,7 @@ class User extends Authenticatable
 
     function getAvatarAttribute(): string
     {
-        $src = Storage::disk('avatars')->url($this->image);
+        $src = Storage::disk('uploads')->url($this->image);
         return (file_exists(public_path($src)) && $this->image)? asset($src) : asset(ConstantController::DEFAULT_AVATAR);
     }
 

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('about')->nullable();
             $table->string('password');
             $table->enum('role', GlobalAppConstants::$roles);
-            $table->enum('active_status', GlobalAppConstants::$active_status)->default(GlobalAppConstants::$active_status[0]);
+            $table->enum('status', GlobalAppConstants::$active_status)->default(GlobalAppConstants::$active_status[1]);
             $table->rememberToken();
             $table->timestamps();
         });

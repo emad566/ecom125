@@ -1,7 +1,6 @@
 {{-- toaster --}}
 <link rel="stylesheet" href="{{asset('dashboards/assets-helpers/css/toastr.min.css')}}">
 <!-- Show form errors in toaster  -->
-<script src="{{asset('dashboards/assets/modules/jquery.min.js')}}"></script>
 <script src="{{asset('dashboards/assets-helpers/js/toastr.min.js')}}"></script>
 
 <script defer>
@@ -59,3 +58,12 @@
     }
 </style>
 {{-- /toaster --}}
+
+
+{{-- START:: General Styled--}}
+<style>
+    .btn-primary{
+        color: white !important;
+    }
+</style>
+{{-- END:: General Styled--}}

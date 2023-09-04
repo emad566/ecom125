@@ -14,6 +14,7 @@ class SetupSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
+            SliderSeeder::class,
         ]);
     }
 }

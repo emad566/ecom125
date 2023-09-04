@@ -154,5 +154,5 @@ return [
     |
     */
 
-    'pagination_theme' => 'bootstarp',
+    'pagination_theme' => 'tailwind',
 ];

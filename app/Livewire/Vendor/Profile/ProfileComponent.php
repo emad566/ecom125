@@ -35,7 +35,7 @@ class ProfileComponent extends Component
         $this->validate([
             'newAvatar' => 'image|max:1024'
         ]);
-        $fileName = $this->newAvatar->store('/', 'avatars');
+        $fileName = $this->newAvatar->store('/avatars', 'uploads');
         auth()->user()->update(['image'=>$fileName]);
         $this->alertSuccess(__('Avatare Saved'));
     }

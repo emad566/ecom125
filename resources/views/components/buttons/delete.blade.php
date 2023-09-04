@@ -1,4 +1,16 @@
 @props([
     'actionId'=>''
 ])
-<x-buttons.button {{ $attributes }} action-id="{{ $actionId }}" class="sweetDelete bg-red-300" >{{ __('Delete') }}</x-buttons.button>
+
+<a wire:click.prevent
+   action-id="{{ $actionId }}"
+
+    {{ $attributes->merge([
+        'type' => 'button',
+        'class' => 'btn btn-danger sweetDelete ml-2',
+    ]) }}
+
+    style="color: white !important;"
+>
+    <i class="far fa-trash-alt"></i>
+</a>

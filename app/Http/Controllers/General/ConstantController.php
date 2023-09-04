@@ -15,5 +15,6 @@ class ConstantController extends Controller
     const STATUS_SUCCESS = "success";
 
     const DEFAULT_AVATAR = 'dashboards/assets/img/avatar/avatar-1.png';
+    const NO_IMAGE = 'images/no-image.png';
 
 }

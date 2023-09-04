@@ -26,4 +26,6 @@
     <link rel="stylesheet" href="{{asset('user/assets/css/rtl/style.css')}}">
     <link rel="stylesheet" href="{{asset('user/assets/css/rtl/responsive.css')}}">
     <link rel="stylesheet" href="{{asset('user/assets/css/rtl.css')}}">
+    <script src="{{asset('dashboards/assets/modules/jquery.min.js')}}"></script>
+
 </head>

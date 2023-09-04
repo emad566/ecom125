@@ -26,9 +26,19 @@
 <!-- Template JS File -->
 <script src="{{asset('dashboards/assets/js/scripts.js')}}"></script>
 <script src="{{asset('dashboards/assets/js/custom.js')}}"></script>
+<script src="{{asset('js/sweetalert2.js')}}"></script>
 
 
 
-@include('admin.layouts.customjs')
+{{-- lottie json --}}
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+{{-- START:: pikaday --}}
+<script defer src="{{ asset('js/moment.js') }}"></script>
+<script defer src="{{ asset('js/pikaday.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/pikaday.css') }}">
+{{-- END:: pikaday --}}
+
+@include('components.layouts.admin.customjs')
 
 

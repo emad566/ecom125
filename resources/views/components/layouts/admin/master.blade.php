@@ -17,7 +17,12 @@
 
         <!-- Main Content -->
         <div class="main-content">
-            {{ $slot }}
+            <section class="section">
+                <div class="section-header">
+                    <h1>{{ $header }}</h1>
+                </div>
+                {{ $slot }}
+            </section>
         </div>
         @include('components.layouts.admin.footer')
     </div>

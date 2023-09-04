@@ -28,6 +28,8 @@
     @if($local=='ar')
         <link rel="stylesheet" href="{{asset('user/assets/css/rtl.css')}}">
     @endif
+    <script src="{{asset('dashboards/assets/modules/jquery.min.js')}}"></script>
+
 </head>
 
 <body>

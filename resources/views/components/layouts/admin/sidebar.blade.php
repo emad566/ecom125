@@ -6,26 +6,23 @@
         <div class="sidebar-brand sidebar-brand-sm">
             <a href="index.html">St</a>
         </div>
+
         <ul class="sidebar-menu">
-            <li class="menu-header">Dashboard</li>
-            <li class="dropdown active">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="index-0.html">General Dashboard</a></li>
-                    <li class=active><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
-                </ul>
-            </li>
-            <li class="menu-header">Starter</li>
-            <li class="dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Layout</span></a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="layout-default.html">Default Layout</a></li>
-                    <li><a class="nav-link" href="layout-transparent.html">Transparent Sidebar</a></li>
-                    <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
-                </ul>
-            </li>
-            <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank Page</span></a></li>
+
+            <x-admin.aside.header >Dashboard</x-admin.aside.header>
+            <x-admin.aside.link route="admin.dashboard" link="dashboard" icon="fas fa-pencil-ruler">{{ __('Dashboard') }}</x-admin.aside.link>
+            <x-admin.aside.menu :title="__('Manage Website')" link="manages*" href="" icon="fas fa-cog">
+                <x-admin.aside.link route="admin.sliders" link="manages/sliders">{{ __('Slider') }}</x-admin.aside.link>
+            </x-admin.aside.menu>
+
+
+{{--            <x-admin.aside.link active="" href="" icon="fas fa-pencil-ruler">Credits</x-admin.aside.link>--}}
         </ul>
 
-   </aside>
+        <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
+            <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
+                <i class="fas fa-rocket"></i> Documentation
+            </a>
+        </div>
+    </aside>
 </div>

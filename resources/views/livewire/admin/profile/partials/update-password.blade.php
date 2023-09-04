@@ -1,5 +1,5 @@
 <div class="row mt-sm-4">
-    <div class="col-12 col-md-12 col-lg-7">
+    <div class="col-12 col-md-12 col-lg-12">
         <div class="card">
             <form wire:submit.prevent="savePassword" class="needs-validation" novalidate="" enctype="multipart/form-data">
 

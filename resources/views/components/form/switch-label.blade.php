@@ -1,6 +1,7 @@
 @props([
     'wrapperClasses'=>'col-3',
     'label'=>''
+    'name'=>''
 ])
 
 <div class="{{ $wrapperClasses }}">
@@ -11,4 +12,5 @@
         </label>
     </span>
     <label class="form-label">{{ $label }}</label>
+    @if($errors->first($name)) <span class="form-text text-danger">{{ $errors->first($name) }}</span> @endif
 </div>

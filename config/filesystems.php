@@ -36,21 +36,16 @@ return [
             'throw' => false,
         ],
 
-        'avatars' => [
+
+
+        'uploads' => [
             'driver' => 'local',
-            'root' => storage_path('app/avatars'),
-            'url' => '/avatars',
+            'root' => storage_path('app/uploads'),
+            'url' => '/uploads',
             'visibility' => 'public',
             'throw' => false,
         ],
 
-        'public' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
-            'visibility' => 'public',
-            'throw' => false,
-        ],
 
         's3' => [
             'driver' => 's3',
@@ -78,8 +73,7 @@ return [
     */
 
     'links' => [
-        public_path('storage') => storage_path('app/public'),
-        public_path('avatars') => storage_path('app/avatars'),
+        public_path('uploads') => storage_path('app/uploads'),
     ],
 
 ];
