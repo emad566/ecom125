@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>{{$title}}</title>
-
+    @vite('resources/css/app.css')
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{asset('dashboards/assets/modules/bootstrap/css/bootstrap-rtl.min.css')}}">
     <link rel="stylesheet" href="{{asset('dashboards/assets/modules/fontawesome/css/all.min.css')}}">
@@ -14,9 +14,6 @@
     <link rel="stylesheet" href="{{asset('dashboards/assets/modules/weather-icon/css/weather-icons.min.css')}}">
     <link rel="stylesheet" href="{{asset('dashboards/assets/modules/weather-icon/css/weather-icons-wind.min.css')}}">
     <link rel="stylesheet" href="{{asset('dashboards/assets/modules/summernote/summernote-bs4.css')}}">
-
-    <!-- Toastr -->
-    <link rel="stylesheet" href="{{asset('dashboards/assets-helpers/css/toastr.min.css')}}">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{asset('dashboards/assets/css/style-rtl.css')}}">

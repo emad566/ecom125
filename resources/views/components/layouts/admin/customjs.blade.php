@@ -1,3 +1,5 @@
+@include('components.layouts.toast-custom-js')
+
 <script>
     function readURL(input, id) {
         if (input.files && input.files[0]) {

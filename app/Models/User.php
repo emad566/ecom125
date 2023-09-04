@@ -3,9 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Http\Controllers\General\ConstantController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Translatable\HasTranslations;
 
@@ -28,6 +30,7 @@ class User extends Authenticatable
         'email_verified_at',
         'password',
         'role',
+        'about',
         'active_status',
     ];
 
@@ -41,7 +44,7 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public  $translatable = ['name'];
+    public  $translatable = ['name', 'about'];
 
     protected $casts = [
         'email_verified_at' => 'datetime',
@@ -57,9 +60,10 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($value);
     }
 
-    function profile_image_path(): string
+    function getAvatarAttribute(): string
     {
-        return file_exists(public_path($this->image))? asset($this->image) : asset('dashboards/assets/img/avatar/avatar-1.png');
+        $src = Storage::disk('avatars')->url($this->image);
+        return (file_exists(public_path($src)) && $this->image)? asset($src) : asset(ConstantController::DEFAULT_AVATAR);
     }
 
 }

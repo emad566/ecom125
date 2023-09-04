@@ -1,9 +1,9 @@
-@php $locale = session()->get('locale'); @endphp
-@if ($locale == null)
-    @php $locale = 'en' @endphp
+@php $local = session()->get('locale'); @endphp
+@if ($local == null)
+    @php $local = 'en' @endphp
 @endif
 
-@if ($locale == 'en')
+@if ($local == 'en')
     @include('components.layouts.user.head_en')
 @else
     @include('components.layouts.user.head_ar')

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('about')->nullable();
             $table->string('password');
             $table->enum('role', GlobalAppConstants::$roles);
             $table->enum('active_status', GlobalAppConstants::$active_status)->default(GlobalAppConstants::$active_status[0]);

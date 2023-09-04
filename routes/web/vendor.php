@@ -1,7 +1,9 @@
 <?php
+namespace App\Livewire\Vendor;
 
-use App\Http\Controllers\Web\Dashboard\VendorWebController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('dashboard', [VendorWebController::class, 'dashboard'])->name('dashboard');
+Route::get('dashboard', Home\VendorComponent::class)->name('dashboard');
+
+Route::get('profile', Profile\ProfileComponent::class)->name('profile');

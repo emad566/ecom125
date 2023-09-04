@@ -1,9 +1,9 @@
-@php $locale = session()->get('locale'); @endphp
-@if ($locale == null)
-    @php $locale = 'en' @endphp
+@php $local = session()->get('locale'); @endphp
+@if ($local == null)
+    @php $local = 'en' @endphp
 @endif
 
-@if ($locale == 'en')
+@if ($local == 'en')
     @include('components.layouts.admin.head_en')
 @else
     @include('components.layouts.admin.head_ar')
@@ -24,5 +24,6 @@
 </div>
 
 @include('components.layouts.admin.footerscripts')
+@include('components.layouts.admin.customjs')
 </body>
 </html>

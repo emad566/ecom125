@@ -21,10 +21,7 @@
             <div class="row mt-sm-4">
                 <div class="col-12 col-md-12 col-lg-7">
                     <div class="card">
-                        <form action="{{route('admin.profile.update')}}" method="post" class="needs-validation"
-                              novalidate="" enctype="multipart/form-data">
-                            @csrf
-                            @method('put')
+                        <form wire:submit.prevent="save" class="needs-validation"  enctype="multipart/form-data">
 
                             <div class="card-header">
                                 <h4>Edit Profile</h4>
@@ -32,48 +29,19 @@
                             <div class="card-body">
                                 <div class="row">
 
-                                    <div class="col-12 col-sm-12 col-lg-12 mb-4 mb-md-0">
-                                        <label for="profileImageInput">
-                                            <div class="avatar-item">
-                                                <img id="profileImage" width="150" height="150" alt="image"
-                                                     src="{{$user->profile_image_path()}}" class="img-fluid"
-                                                     data-toggle="tooltip" title=""
-                                                     data-original-title="Edit Profile">
-                                                <div class="avatar-badge" title="" data-toggle="tooltip"
-                                                     data-original-title="Editor"><i class="fas fa-edit"></i></div>
-                                            </div>
-                                        </label>
-                                        @if($errors?->has('image'))
-                                            <div class="invalid-feedback d-block">
-                                                {{$errors->get('image')[0]}}
-                                            </div>
-                                        @endif
-                                        <x-dashboard.form-label-input
-                                            name="image" label="" id="profileImageInput" name="image"
-                                            :errors="$errors" type="file" :old="old('image')" :value="$user->image"
-                                            attribute="onchange=readURL(this,'profileImage');" :hidden="true"
-                                        />
-                                    </div>
+                                    <x-form.image imageId="profileImage" :src="asset($newAvatar? $newAvatar->temporaryUrl(): $currentItem->avatar)" wire:model.blur="newAvatar" name="newAvatar" :label="__('Profile')" wrapperClasses="col-12"/>
 
+                                    <x-form.input wire:model.blur="name" name="name" :label="__('Name')" :placeholder="__('Name')" wrapperClasses="col-6"/>
+                                    <x-form.input wire:model.blur="currentItem.email" name="currentItem.email" :label="__('Email')" :placeholder="__('Email')" wrapperClasses="col-6"/>
+                                    <x-form.input wire:model.blur="currentItem.username" name="currentItem.username" :label="__('User Name')" :placeholder="__('User Name')" wrapperClasses="col-6"/>
+                                    <x-form.input wire:model.blur="currentItem.phone" name="currentItem.phone" :label="__('Phone')" :placeholder="__('Phone')" wrapperClasses="col-6"/>
 
-                                    <x-dashboard.form-label-input name="name" label="Name" :errors="$errors"
-                                                                  required="required" :old="old('name')"
-                                                                  :value="$user->name"/>
-                                    <x-dashboard.form-label-input name="email" label="Email" :errors="$errors"
-                                                                  required="required" :old="old('email')"
-                                                                  :value="$user->email"/>
-                                    <x-dashboard.form-label-input name="username" label="User Name"
-                                                                  :errors="$errors" required="required"
-                                                                  :old="old('username')" :value="$user->username"/>
-                                    <x-dashboard.form-label-input name="phone" label="Phone" :errors="$errors"
-                                                                  required="required" :old="old('phone')"
-                                                                  :value="$user->phone"/>
 
                                 </div>
 
                             </div>
                             <div class="card-footer text-right">
-                                <button class="btn btn-primary">Save Changes</button>
+                                <x-buttons.submit target="save" >{{ __('Save Changes') }}</x-buttons.submit>
                             </div>
                         </form>
                     </div>
@@ -82,38 +50,7 @@
             <!-- /edit profile -->
 
             <!-- Updated Password -->
-            <div class="row mt-sm-4">
-                <div class="col-12 col-md-12 col-lg-7">
-                    <div class="card">
-                        <form action="{{route('admin.profile.password.update')}}" method="post"
-                              class="needs-validation" novalidate="" enctype="multipart/form-data">
-                            @csrf
-                            @method('put')
-
-                            <div class="card-header">
-                                <h4>Update Password</h4>
-                            </div>
-
-                            <div class="card-body">
-                                <div class="row">
-
-                                    <x-dashboard.form-label-input type="password" name="password" label="Password"
-                                                                  :errors="$errors" required="required"
-                                                                  :old="old('password')"/>
-                                    <x-dashboard.form-label-input type="password" name="password_confirmation"
-                                                                  label="Confirm Password" :errors="$errors"
-                                                                  required="required" :old="old('password')"/>
-
-                                </div>
-                            </div>
-
-                            <div class="card-footer text-right">
-                                <button class="btn btn-primary">Save Changes</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            @include('livewire.admin.profile.partials.update-password')
             <!-- /Updated Password -->
 
         </div>

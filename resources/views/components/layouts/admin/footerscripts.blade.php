@@ -28,8 +28,7 @@
 <script src="{{asset('dashboards/assets/js/custom.js')}}"></script>
 
 
-<!-- Show form errors in toaster  -->
-<script src="{{asset('dashboards/assets-helpers/js/toastr.min.js')}}"></script>
+
 @include('admin.layouts.customjs')
 
 
