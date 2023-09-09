@@ -39,6 +39,16 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/pikaday.css') }}">
 {{-- END:: pikaday --}}
 
+
+{{-- START:: Dragula --}}
+<script defer src="{{ asset('js/dragula.min.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/dragula.min.css') }}">
+{{-- END:: Dragula --}}
+
+
+
+
+
 @include('components.layouts.admin.customjs')
 
 

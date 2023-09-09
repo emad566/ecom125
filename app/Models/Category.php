@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory, StatusSwitch;
-
+    protected $guarded =[];
     public function childes(){
         return $this->hasMany(Category::class, 'parent_id', 'id');
     }

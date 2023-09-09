@@ -1,6 +1,6 @@
 @props([
     'wrapperClasses'=>'col-3',
-    'label'=>''
+    'label'=>'',
     'name'=>''
 ])
 

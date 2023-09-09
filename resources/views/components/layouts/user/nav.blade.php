@@ -305,8 +305,9 @@
                     </ul>
                     <ul class="wsus__menu_item wsus__menu_item_right">
                         <li><a href="contact.html">contact</a></li>
-                        <li><a wire:navigate href="{{route('admin.dashboard')}}">my account</a></li>
-                        <li><a wire:navigate href="{{route('login')}}">login</a></li>
+
+                        @if(auth()->check()) <li><a  href="{{route('admin.dashboard')}}">my account</a></li> @endif
+                        @if(auth()->guest()) <li><a wire:navigate href="{{route('login')}}">login</a></li> @endif
                     </ul>
                 </div>
             </div>

@@ -58,4 +58,28 @@ Trait WithTable{
         $item->delete();
         $this->dispatch('alert-delete');
     }
+
+    private function resetInputFields(){
+        $this->currentItem =$this::MODEL::make();
+        $this->resetErrorBag();
+    }
+
+    public function edit($item)
+    {
+        $this->resetInputFields();
+        $this->is_edit = true;
+        $item = $this::MODEL::find($item);
+        $this->currentItem = $item;
+        $this->show_modal = true;
+    }
+
+    public function save()
+    {
+
+        $this->validate();
+        $this->currentItem->save();
+        $this->cancel();
+        $this->alertSuccess(__('Saved'));
+        $this->dispatch('alert-saved');
+    }
 }

@@ -14,6 +14,13 @@
             <x-admin.aside.menu :title="__('Manage Website')" link="manages*" href="" icon="fas fa-cog">
                 <x-admin.aside.link route="admin.sliders" link="manages/sliders">{{ __('Slider') }}</x-admin.aside.link>
             </x-admin.aside.menu>
+            <x-admin.aside.menu :title="__('Manage Categories')" link="categories*" href="" icon="fas fa-box">
+                <x-admin.aside.link route="admin.categories.index" link="categories/index">{{ __('Categories') }}</x-admin.aside.link>
+            </x-admin.aside.menu>
+            <x-admin.aside.menu :title="__('Manage Products')" link="categories*" href="" icon="fas fa-box">
+                <x-admin.aside.link route="admin.brands.index" link="categories/index">{{ __('Categories') }}</x-admin.aside.link>
+            </x-admin.aside.menu>
+
 
 
 {{--            <x-admin.aside.link active="" href="" icon="fas fa-pencil-ruler">Credits</x-admin.aside.link>--}}
