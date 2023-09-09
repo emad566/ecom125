@@ -10,12 +10,12 @@ use Livewire\WithFileUploads;
 
 class BrandComponent extends Component
 {
+
     use WithTable, WithFileUploads;
 
     public Model $currentItem;
     public  $name;
-    public $newFile;
-    public $newFileName;
+    public $newLogo;
 
     protected  const MODEL = Model::class;
 
@@ -27,15 +27,6 @@ class BrandComponent extends Component
             'currentItem.is_featured' => ['nullable'],
             'currentItem.status' => ['nullable']
         ];
-    }
-
-    public function updatedNewBanner(){
-        $this->validate([
-            'newFile' => 'image|max:1024'
-        ]);
-        $this->newFileName = $this->newFile->store('/brands', 'uploads');
-        $this->currentItem->logo = $this->newFileName;
-        $this->alertSuccess(__('Banner Uploaded'));
     }
 
     public function edit(Model $item)
@@ -59,11 +50,22 @@ class BrandComponent extends Component
 
     private function resetInputFields(){
         $this->name='';
-        $this->newFile='';
+        $this->newLogo='';
         $this->currentItem = Model::make();
         $this->resetErrorBag();
     }
 
+    public function updatedNewLogo(){
+        $this->validate([
+            'newLogo' => 'image|max:1024'
+        ]);
+        $LogoName = $this->newLogo->store('/brands', 'uploads');
+        if($this->currentItem->logo){
+
+        }
+        $this->currentItem->logo =$LogoName;
+        $this->alertSuccess(__('Logo Uploaded'));
+    }
 
     function search()
     {
@@ -79,4 +81,5 @@ class BrandComponent extends Component
             'items'=> $this->search(),
         ]);
     }
+
 }

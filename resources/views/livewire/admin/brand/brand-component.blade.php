@@ -18,7 +18,7 @@
             <x-form.select wire:model.live="paginate" name="paginate" :label="__('Show')">
                 <x-options.options key="all" value="All" :options="$paginate_list" selected="5"/>
             </x-form.select>
-            <x-form.input-icon wire:model.live.debounce.500ms="search" name="search" :label="__('Search')" placeholder="{{ __('Search') }} - {{ __('Title') }} ..." icon="flaticon2-search-1 icon-md"/>
+            <x-form.input-icon wire:model.live.debounce.500ms="search" name="search" :label="__('Search')" placeholder="{{ __('Search') }} - {{ __('name') }} ..." icon="flaticon2-search-1 icon-md"/>
         </div>
 
 
@@ -27,8 +27,9 @@
                 <x-table.heading sortable wire:click="sortBy('id')" :direction="$sort_field === 'id'? $sort_direction : null">{{ __('#') }}</x-table.heading>
                 <x-table.heading>{{ __('Logo') }}</x-table.heading>
                 <x-table.heading sortable wire:click="sortBy('name')" :direction="$sort_field === 'name'? $sort_direction : null">{{ __('Name') }}</x-table.heading>
-                <x-table.heading sortable wire:click="sortBy('slug')" :direction="$sort_field === 'slug'? $sort_direction : null">{{ __('Slug') }}</x-table.heading>
+
                 <x-table.heading sortable wire:click="sortBy('is_featured')" :direction="$sort_field === 'is_featured'? $sort_direction : null">{{ __('Featured') }}</x-table.heading>
+
                 <x-table.heading sortable wire:click="sortBy('status')" :direction="$sort_field === 'status'? $sort_direction : null">{{ __('Status') }}</x-table.heading>
                 <x-table.heading>{{ __('Actions') }}</x-table.heading>
             </x-slot>
@@ -43,10 +44,11 @@
                             <img src="{{ $item->logo_src }}" style="width: 200px; height: 40px; display: block; margin: auto" />
                         </x-table.cell>
                         <x-table.cell>{{ $item->name }}</x-table.cell>
-                        <x-table.cell>{{ $item->slug }}</x-table.cell>
+
                         <x-table.cell>
-                            <x-form.switch :checked="$item->status_switch"  wire:click="status_switch({{ $item->id }}, 'is_featured')" >1</x-form.switch>
+                            <x-form.switch :checked="$item->is_featured_switch"  wire:click="status_switch({{ $item->id }}, {{ $item->is_featured }})" >1</x-form.switch>
                         </x-table.cell>
+
                         <x-table.cell>
                             <x-form.switch :checked="$item->status_switch"  wire:click="status_switch({{ $item->id }})" >1</x-form.switch>
                         </x-table.cell>

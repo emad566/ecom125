@@ -10,7 +10,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Slider extends Model
 {
-    use HasFactory, HasTranslations, HasTranslations, StatusSwitch;
+    use HasFactory, HasTranslations, StatusSwitch;
     protected $table ='sliders';
     protected $guarded = [];
 

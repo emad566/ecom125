@@ -11,15 +11,25 @@ use Spatie\Translatable\HasTranslations;
 
 class Brand extends Model
 {
-    use HasFactory, HasTranslations, HasTranslations, StatusSwitch;
+    use HasFactory, HasTranslations, StatusSwitch;
     protected $table ='brands';
     protected $guarded = [];
 
     protected $translatable = ['name'];
+
 
     function getLogoSrcAttribute(): string
     {
         $src = Storage::disk('uploads')->url('/' .$this->logo);
         return (file_exists(public_path($src)) && $this->logo)? asset($src) : asset(ConstantController::NO_IMAGE);
     }
+
+    public function getIsFeaturedSwitchAttribute(){
+        return $this->status? 'checked="checked"' : '';
+    }
+
+    public function getIsFeaturedAttribute($value){
+        return $value? true : false;
+    }
+
 }

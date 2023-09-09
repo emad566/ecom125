@@ -4,14 +4,12 @@
         <x-slot name="content">
             <x-snippets.loading wire:target="edit" />
             <div class="row">
-                <x-form.banner labelClasses="col-12" imageId="bannerImage" :src="asset($newBanner? $newBanner->temporaryUrl(): $currentItem->banner_src)" wire:model.blur="newBanner" name="currentItem.banner" :label="__('Banner')" wrapperClasses="col-12"/>
+                <x-form.banner labelClasses="col-12" imageId="logoImage" :src="asset($newLogo? $newLogo->temporaryUrl(): $currentItem->logo_src)" wire:model.blur="newLogo" name="currentItem.logo" :label="__('Logo')" wrapperClasses="col-12"/>
 
-                <x-form.input wire:model.blur="title" name="title" :label="__('Title')" :placeholder="__('Title')" wrapperClasses="col-12"/>
-                <x-form.input wire:model.blur="currentItem.type" name="currentItem.type" :label="__('Type')" :placeholder="__('Type')" wrapperClasses="col-12"/>
-                <x-form.input type="number" wire:model.blur="currentItem.starting_price" name="currentItem.starting_price" :label="__('Starting Price')" :placeholder="__('Starting Price')" wrapperClasses="col-12"/>
-                <x-form.input wire:model.blur="currentItem.btn_url" name="currentItem.btn_url" :label="__('Button Url')" :placeholder="__('Button Url')" wrapperClasses="col-12"/>
-                <x-form.input wire:model.blur="currentItem.serial" name="currentItem.serial" :label="__('Serial')" :placeholder="__('Serial')" wrapperClasses="col-12"/>
-                <x-form.switch wire:model.live="currentItem.status" name="currentItem.status"  :label="__('Status')" wrapperClasses="row d-flex flex-wrap justify-content-end col-12">1</x-form.switch>
+                <x-form.input wire:model.blur="name" name="name" :label="__('Name')" :placeholder="__('Name')" wrapperClasses="col-12"/>
+                <x-form.input wire:model.blur="currentItem.slug" name="currentItem.slug" :label="__('Slug')" :placeholder="__('Slug')" wrapperClasses="col-12"/>
+                <x-form.switch wire:model.live="currentItem.is_featured" name="currentItem.is_featured"  :label="__('Featured')" wrapperClasses="row d-flex flex-wrap justify-content-start col-6">1</x-form.switch>
+                <x-form.switch wire:model.live="currentItem.status" name="currentItem.status"  :label="__('Status')" wrapperClasses="row d-flex flex-wrap justify-content-start col-6">1</x-form.switch>
             </div>
         </x-slot>
         <x-slot name="footer">
