@@ -13,6 +13,7 @@
             <x-admin.aside.link route="admin.dashboard" link="dashboard" icon="fas fa-pencil-ruler">{{ __('Dashboard') }}</x-admin.aside.link>
             <x-admin.aside.menu :title="__('Manage Website')" link="manages*" href="" icon="fas fa-cog">
                 <x-admin.aside.link route="admin.sliders" link="manages/sliders">{{ __('Slider') }}</x-admin.aside.link>
+                <x-admin.aside.link route="admin.brands" link="manages/brands">{{ __('Brands') }}</x-admin.aside.link>
             </x-admin.aside.menu>
 
 
