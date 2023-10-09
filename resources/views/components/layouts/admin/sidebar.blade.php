@@ -17,8 +17,9 @@
             <x-admin.aside.menu :title="__('Manage Categories')" link="categories*" href="" icon="fas fa-box">
                 <x-admin.aside.link route="admin.categories.index" link="categories/index">{{ __('Categories') }}</x-admin.aside.link>
             </x-admin.aside.menu>
-            <x-admin.aside.menu :title="__('Manage Products')" link="categories*" href="" icon="fas fa-box">
+            <x-admin.aside.menu :title="__('Manage Products')" link="products*" href="" icon="fas fa-box">
                 <x-admin.aside.link route="admin.brands.index" link="products/brands/index">{{ __('Brands') }}</x-admin.aside.link>
+                <x-admin.aside.link route="admin.products.index" link="products/index">{{ __('Products') }}</x-admin.aside.link>
             </x-admin.aside.menu>
 
 

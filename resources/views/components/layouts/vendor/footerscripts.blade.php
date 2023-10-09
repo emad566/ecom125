@@ -37,7 +37,7 @@
 <script src="{{asset('user/assets/js/main.js')}}"></script>
 
 {{-- lottie json --}}
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script src="{{asset('js/lottie-player-2.0.2.js')}}"></script>
 
 {{-- START:: pikaday --}}
 <script defer src="{{ asset('js/moment.js') }}"></script>
