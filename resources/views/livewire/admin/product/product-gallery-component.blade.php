@@ -5,15 +5,27 @@
     show: false,
     isCreate: false,
 }">
-    <div class="card-header d-flex flex-nowrap justify-content-end border-0 pt-6 pb-0">
-        <div class="card-header-action ">
 
+
+    <div class="card-header d-flex flex-nowrap border-0 pt-6 pb-0">
+        <div class="card-header">
+            <h4>Product: {{ $product->name }}</h4>
+        </div>
+        <div class="card-header-action ">
 
         </div>
     </div>
 
     <div class="card-body">
-        Hi write your content here!
+        <div class="form-group">
+            <label for="">Image</label>
+            <input wire:model.live="images" type="file" name="images[]" class="form-control" multiple>
+            @for($i=0; $i<20; $i++)
+                @if($errors->first('images.'.$i)) <span class="form-text text-danger">{{ $errors->first('images.'.$i) }}</span> @endif
+            @endfor
+        </div>
+        <button wire:click="upload" type="submit" class="btn btn-primary">Upload</button>
+
         <div class="row d-flex flex-nowrap justify-content-between">
 {{--            <x-form.select wire:model.live="paginate" name="paginate" :label="__('Show')">--}}
 {{--                <x-options.options key="all" value="All" :options="$paginate_list" selected="5"/>--}}
@@ -21,24 +33,16 @@
 {{--            <x-form.input-icon wire:model.live.debounce.500ms="search" name="search" :label="__('Search')" placeholder="{{ __('Search') }} - {{ __('name') }} ..." icon="flaticon2-search-1 icon-md"/>--}}
         </div>
 
-{{--        <x-table.table>--}}
-{{--            <x-slot name="head">--}}
-{{--                <x-table.heading sortable wire:click="sortBy('id')" :direction="$sort_field === 'id'? $sort_direction : null">{{ __('#') }}</x-table.heading>--}}
+        <x-table.table>
+            <x-slot name="head">
+                <x-table.heading sortable wire:click="sortBy('id')" :direction="$sort_field === 'id'? $sort_direction : null">{{ __('#') }}</x-table.heading>
 
-{{--                <x-table.heading>{{ __('Image') }}</x-table.heading>--}}
+                <x-table.heading>{{ __('Image') }}</x-table.heading>
 
-{{--                <x-table.heading sortable wire:click="sortBy('name')" :direction="$sort_field === 'name'? $sort_direction : null">{{ __('Name') }}</x-table.heading>--}}
+                <x-table.heading>{{ __('Actions') }}</x-table.heading>
+            </x-slot>
 
-{{--                <x-table.heading sortable wire:click="sortBy('price')" :direction="$sort_field === 'price'? $sort_direction : null">{{ __('Price') }}</x-table.heading>--}}
-
-{{--                <x-table.heading sortable wire:click="sortBy('product_type')" :direction="$sort_field === 'product_type'? $sort_direction : null">{{ __('Type') }}</x-table.heading>--}}
-
-{{--                <x-table.heading sortable wire:click="sortBy('status')" :direction="$sort_field === 'status'? $sort_direction : null">{{ __('Status') }}</x-table.heading>--}}
-
-{{--                <x-table.heading>{{ __('Actions') }}</x-table.heading>--}}
-{{--            </x-slot>--}}
-
-{{--            <x-slot name="body">--}}
+            <x-slot name="body">
 {{--                @foreach($items as $item)--}}
 {{--                    <x-table.row wire:loading.class="opacity-50" wire:target="search">--}}
 {{--                        <x-table.cell>--}}
@@ -74,9 +78,9 @@
 {{--                @endforeach--}}
 
 {{--                <x-table.nodata :items="$items"></x-table.nodata>--}}
-{{--            </x-slot>--}}
+            </x-slot>
 
-{{--        </x-table.table>--}}
+        </x-table.table>
 
 {{--        <div class="mt-5">--}}
 {{--            @if($paginate != 'all')--}}
