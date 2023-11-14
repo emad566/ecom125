@@ -10,12 +10,13 @@ use Illuminate\Support\Facades\Storage;
 class ProductImageGallery extends Model
 {
     use HasFactory;
-
+    protected $guarded = [];
 
     public function product()
     {
         return $this->belongsTo(Product::class);
     }
+
     function getImageSrcAttribute(): string
     {
         $src = Storage::disk('uploads')->url('/' .$this->image);

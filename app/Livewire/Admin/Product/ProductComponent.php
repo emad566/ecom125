@@ -10,15 +10,11 @@ use Livewire\Component;
 class ProductComponent extends Component
 {
     use WithTable;
-
     protected  const MODEL = Model::class;
-
-
 
     function search()
     {
-        $result = Model::search('name', $this->search)
-            ->orderBy($this->sort_field, $this->sort_direction);
+        $result = Model::search('name', $this->search)->orderBy($this->sort_field, $this->sort_direction);
         return $this->paginate == 'all'? $result->get() : $result->paginate($this->paginate);
     }
 

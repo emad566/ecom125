@@ -7,6 +7,7 @@ use App\Http\Controllers\General\OptionsController;
 use App\Http\Traits\Toast;
 use App\Http\Traits\WithTable;
 use App\Models\Product;
+use App\Models\ProductImageGallery;
 use App\Models\ProductImageGallery as Model;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
@@ -38,23 +39,29 @@ class ProductImageGalleryComponent extends Component
     public function updatedImages(){
         $this->validate([
             'images' => 'array',
-            'images.*' => 'image|max:10'
+            'images.*' => 'image|max:512'
         ]);
-//        foreach ()
-//        $thumbName = $this->newThumb->store('/products', 'uploads');
-//
-//        $this->product->thumb_image =$thumbName;
     }
 
-    public function upload(){
+    public function uploaddata(){
+        if(!$this->images) return;
         foreach ($this->images as $image){
-            $this->alertSuccess('ok');
+            $thumbName = $image->store('/products', 'uploads');
+            ProductImageGallery::create(['image'=>$thumbName, 'product_id'=>$this->product->id]);
         }
+        $this->alertSuccess('ok');
     }
+
+    public function search(){
+        return ProductImageGallery::where('product_id', $this->product->id)->get();
+    }
+
 
     #[Layout('components.layouts.admin.master')]
     public function render()
     {
-        return view('livewire.admin.product.product-gallery-component');
+        return view('livewire.admin.product.product-gallery-component', [
+            'items'=> $this->search(),
+        ]);
     }
 }

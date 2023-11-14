@@ -2,7 +2,8 @@
     'actionId'=>''
 ])
 
-<a wire:click.prevent
+<a
+
    action-id="{{ $actionId }}"
 
     {{ $attributes->merge([
